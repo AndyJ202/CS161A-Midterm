@@ -1,32 +1,19 @@
 // ------------- FILE HEADER -------------
-// Author:
-// Assignment:
-// Date:
+// Author: Andy Joy
+// Assignment: Midterm
+// Date: 05/09/2026
 // Description:
-// Sources:
-
-// ------------- ZYBOOKS SCORES -------------
-// https://learn.zybooks.com/zybook/PCCCS161ASummer25
-// Chapter: NONE MIDTERM WEEK
-
-
-// ------------- DESIGN DOCUMENT -------------
-// A. INPUT [yes/no]:
-// B. OUTPUT [yes/no]:
-// C. CALCULATIONS [yes/no]:
-// D. LOGIC and ALGORITHMS [yes/no]:
-//    (Optional) flow chart link or file name:
+// Sources: N/A
 
 // ------------- TESTING -------------
-// PASS ALL GIVEN SAMPLE RUN TESTS [yes/no]:
-// (Optional) Additional tests count:
+// PASS ALL GIVEN SAMPLE RUN TESTS [yes/no]: Yes
+// (Optional) Additional tests count: 4
 
 // ------------- CODE -------------
 #include <iostream>
 #include <string>
 #include <limits> // NOT <climits> for cin.ignore(numeric_limits<streamsize>::max(), '\n');
 #include <iomanip>
-
 
 // RUN AND TEST COMMAND
 // cd _midterm // Or the directory containing these files
@@ -42,151 +29,148 @@
 // REMOVE ./a.out
 // rm ./a.out
 
-
-
 using namespace std;
 
-int main() {
-  string p1_name = "";
-  string p2_name = "";
-  string p3_name = "";
+//constants declared
+const int NUM_PLAYERS = 3;
 
-  int p1_count = 0;
-  int p2_count = 0;
-  int p3_count = 0;
+int main() {
+
+  //Define variables
+  string p1Name = "";
+  string p2Name = "";
+  string p3Name = "";
+
+  int p1Count = 0;
+  int p2Count = 0;
+  int p3Count = 0;
 
   cout << "Welcome to the Rock Collector Championships!" << endl;
   
-  cout << "Enter player 1 name: ";
-  getline(cin, p1_name);
-  cout << "How many rocks did " << p1_name << " collect? ";
-  cin >> p1_count;
+  //User input
+  cout << "\nEnter player 1 name: ";
+  getline(cin, p1Name);
+  cout << "How many rocks did " << p1Name << " collect? ";
+  cin >> p1Count;
   cin.ignore(numeric_limits<streamsize>::max(), '\n');
+  if (p1Count < 0) {
+    cout << "Invalid amount. 0 will be entered." << endl;
+    p1Count = 0;
+  }
 
-  cout << "Enter player 2 name: ";
-  getline(cin, p2_name);
-  cout << "How many rocks did " << p2_name << " collect? ";
-  cin >> p2_count;
+  cout << "\nEnter player 2 name: ";
+  getline(cin, p2Name);
+  cout << "How many rocks did " << p2Name << " collect? ";
+  cin >> p2Count;
   cin.ignore(numeric_limits<streamsize>::max(), '\n');
+  if (p2Count < 0) {
+    cout << "Invalid amount. 0 will be entered." << endl;
+    p2Count = 0;
+  }
 
-  cout << "Enter player 3 name: ";
-  getline(cin, p3_name);
-  cout << "How many rocks did " << p3_name << " collect? ";
-  cin >> p3_count;
+  cout << "\nEnter player 3 name: ";
+  getline(cin, p3Name);
+  cout << "How many rocks did " << p3Name << " collect? ";
+  cin >> p3Count;
   cin.ignore(numeric_limits<streamsize>::max(), '\n');
+  if (p3Count < 0) {
+    cout << "Invalid amount. 0 will be entered." << endl;
+    p3Count = 0;
+  }
 
   // DEBUG
   // cout << endl;
   // cout << "NAME" <<  '\t' << "COUNT" << endl;
-  // cout << p1_name << '\t' << p1_count << endl;
-  // cout << p2_name << '\t' << p2_count << endl;
-  // cout << p3_name << '\t' << p3_count << endl;
-
-  //Calculations
-
-  float average = (p1_count + p2_count + p3_count) / 3.0;
-
-  cout << fixed << setprecision(2);
-
-  int a = p1_count;
-  int b = p2_count;
-  int c = p3_count;
-
-  string first_name = "";
-  string second_name = "";
-  string third_name = "";
+  // cout << p1Name << '\t' << p1Count << endl;
+  // cout << p2Name << '\t' << p2Count << endl;
+  // cout << p3Name << '\t' << p3Count << endl;
 
   // Determine places
-  cout << "Congratulations Rock Collectors!" << endl;
+  int a = p1Count;
+  int b = p2Count;
+  int c = p3Count;
+
+  // 3 way tie
+  if ((a == b) && (b == c)) {
+    cout << "\nIt is a three way tie!" << endl;
+  }
+
+  // 2 way tie for first place
+  else if ((a == b) && (a > c)) {
+    cout << "\n" << p1Name << " and " << p2Name << " are tied for first place." << endl;
+    cout << p3Name << " is in second place!" << endl;
+  }
+
+  else if ((a == c) && (a > b)) {
+    cout << "\n" << p1Name << " and " << p3Name << " are tied for first place." << endl;
+    cout << p2Name << " is in second place!" << endl;
+  }
+
+  else if ((b == c) && (b > a)) {
+    cout << "\n" << p2Name << " and " << p3Name << " are tied for first place." << endl;
+    cout << p1Name << " is in second place!" << endl;
+  }
+
+  // 2 way tie for second place
+  else if ((a > b) && (b == c)) {
+    cout << "\n" << p1Name << " is in first place!" << endl;
+    cout << p2Name << " and " << p3Name << " are tied for second place." << endl;
+  }
+
+  else if ((b > a) && (a == c)) {
+    cout << "\n" << p2Name << " is in first place!" << endl;
+    cout << p1Name << " and " << p3Name << " are tied for second place." << endl;
+  }
+
+  else if ((c > a) && (a == b)) {
+    cout << "\n" << p3Name << " is in first place!" << endl;
+    cout << p1Name << " and " << p2Name << " are tied for second place." << endl;
+  }
+
+  //1st place, 2nd place, 3rd place
+  else if ((a > b) && (b > c)) {
+    cout << "\n" << p1Name << " is in first place!" << endl;
+    cout << p2Name << " is in second place." << endl;
+    cout << p3Name << " is in third place." << endl;
+  }
+
+  else if ((a > c) && (c > b)) {
+    cout << "\n" << p1Name << " is in first place!" << endl;
+    cout << p3Name << " is in second place." << endl;
+    cout << p2Name << " is in third place." << endl;
+  }
+
+  else if ((b > a) && (a > c)) {
+    cout << "\n" << p2Name << " is in first place!" << endl;
+    cout << p1Name << " is in second place." << endl;
+    cout << p3Name << " is in third place." << endl;
+  }
+
+  else if ((b > c) && (c > a)) {
+    cout << "\n" << p2Name << " is in first place!" << endl;
+    cout << p3Name << " is in second place." << endl;
+    cout << p1Name << " is in third place." << endl;
+  }
+
+  else if ((c > a) && (a > b)) {
+    cout << "\n" << p3Name << " is in first place!" << endl;
+    cout << p1Name << " is in second place." << endl;
+    cout << p2Name << " is in third place." << endl;
+  }
+
+  else if ((c > b) && (b > a)) {
+    cout << "\n" << p3Name << " is in first place!" << endl;
+    cout << p2Name << " is in second place." << endl;
+    cout << p1Name << " is in third place." << endl;
+  }
+
+  //Calculations
+  float average = static_cast<double>(p1Count + p2Count + p3Count) / NUM_PLAYERS;
+
+  cout << "\nThe average number of rocks collected by the top three players is ";
+  cout << fixed << setprecision(2) << showpoint << average << " rocks!" << endl;
+
+  cout << "\nCongratulations Rock Collectors!" << endl;
 
   return 0;
 }
-
-// ------------- DESIGN -------------
-/*
-Program Name:
-
-Program Description:
-
-Design:
-A. INPUT
-Define the input variables including name data type.
-
-B. OUTPUT
-Define the output variables including data types.
-
-C. CALCULATIONS
-Describe calculations used by algorithms in step D.
-List all formulas.
-If there are no calculations needed, state there are no calculations.
-
-D. LOGIC and ALGORITHMS
-Design the logic of your program using pseudocode or flowcharts.
-Use conditionals, loops, functions or array constructs.
-List the steps in transforming inputs into outputs.
-https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/Pseudocode-Reference.txt
-
-
-SAMPLE RUNS
-Welcome to the Rock Collector Championships!
-
-Enter player 1 name: Gordan Freeman
-How many rocks did Gordan Freeman collect? -9
-Invalid amount. 0 will be entered.
-
-Enter player 2 name: Link
-How many rocks did Link collect? 45
-
-Enter player 3 name: D. Va
-How many rocks did D. Va collect? 45
-
-Link and D. Va are tied for first place.
-Gordan Freeman is in second place!
-
-The average number of rocks collected by the top three players is 30.00 rocks!
-
-Congratulations Rock Collectors!
-
-
-
-
-Welcome to the Rock Collector Championships!
-
-Enter player 1 name: Mario
-How many rocks did Mario collect? 56
-
-Enter player 2 name: Master Chief
-How many rocks did Master Chief collect? 56
-
-Enter player 3 name: Sonic
-How many rocks did Sonic collect? 56
-
-It is a three way tie!
-
-The average number of rocks collected by the top three players is 56.00 rocks!
-
-Congratulations Rock Collectors!
-
-
-
-
-Welcome to the Rock Collector Championships!
-
-Enter player 1 name: King Dedede
-How many rocks did King Dedede collect? 57
-
-Enter player 2 name: Samus
-How many rocks did Samus collect? 102
-
-Enter player 3 name: Kirby
-How many rocks did Kirby collect? 62
-
-Samus is in first place!
-Kirby is in second place.
-King Dedede is in third place.
-
-The average number of rocks collected by the top three players is 73.67 rocks!
-
-Congratulations Rock Collectors!
-
-*/
