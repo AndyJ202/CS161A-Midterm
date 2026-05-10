@@ -7,8 +7,7 @@
 
 // Indent Sub-statements by 3!!!!
 // Wrap Code?
-// Capitlize start of comments
-
+// Capitalize start of comments
 
 // ------------- TESTING -------------
 // PASS ALL GIVEN SAMPLE RUN TESTS [yes/no]: Yes
@@ -62,7 +61,6 @@ int main() {
     cout << "Invalid amount. 0 will be entered." << endl;
     p1Count = 0;
   }
-
   cout << "\nEnter player 2 name: ";
   getline(cin, p2Name);
   cout << "How many rocks did " << p2Name << " collect? ";
@@ -72,7 +70,6 @@ int main() {
     cout << "Invalid amount. 0 will be entered." << endl;
     p2Count = 0;
   }
-
   cout << "\nEnter player 3 name: ";
   getline(cin, p3Name);
   cout << "How many rocks did " << p3Name << " collect? ";
@@ -105,12 +102,10 @@ int main() {
     cout << "\n" << p1Name << " and " << p2Name << " are tied for first place." << endl;
     cout << p3Name << " is in second place!" << endl;
   }
-
   else if ((a == c) && (a > b)) {
     cout << "\n" << p1Name << " and " << p3Name << " are tied for first place." << endl;
     cout << p2Name << " is in second place!" << endl;
   }
-
   else if ((b == c) && (b > a)) {
     cout << "\n" << p2Name << " and " << p3Name << " are tied for first place." << endl;
     cout << p1Name << " is in second place!" << endl;
@@ -121,48 +116,40 @@ int main() {
     cout << "\n" << p1Name << " is in first place!" << endl;
     cout << p2Name << " and " << p3Name << " are tied for second place." << endl;
   }
-
   else if ((b > a) && (a == c)) {
     cout << "\n" << p2Name << " is in first place!" << endl;
     cout << p1Name << " and " << p3Name << " are tied for second place." << endl;
   }
-
   else if ((c > a) && (a == b)) {
     cout << "\n" << p3Name << " is in first place!" << endl;
     cout << p1Name << " and " << p2Name << " are tied for second place." << endl;
   }
-
   //1st place, 2nd place, 3rd place
   else if ((a > b) && (b > c)) {
     cout << "\n" << p1Name << " is in first place!" << endl;
     cout << p2Name << " is in second place." << endl;
     cout << p3Name << " is in third place." << endl;
   }
-
   else if ((a > c) && (c > b)) {
     cout << "\n" << p1Name << " is in first place!" << endl;
     cout << p3Name << " is in second place." << endl;
     cout << p2Name << " is in third place." << endl;
   }
-
   else if ((b > a) && (a > c)) {
     cout << "\n" << p2Name << " is in first place!" << endl;
     cout << p1Name << " is in second place." << endl;
     cout << p3Name << " is in third place." << endl;
   }
-
   else if ((b > c) && (c > a)) {
     cout << "\n" << p2Name << " is in first place!" << endl;
     cout << p3Name << " is in second place." << endl;
     cout << p1Name << " is in third place." << endl;
   }
-
   else if ((c > a) && (a > b)) {
     cout << "\n" << p3Name << " is in first place!" << endl;
     cout << p1Name << " is in second place." << endl;
     cout << p2Name << " is in third place." << endl;
   }
-
   else if ((c > b) && (b > a)) {
     cout << "\n" << p3Name << " is in first place!" << endl;
     cout << p2Name << " is in second place." << endl;
