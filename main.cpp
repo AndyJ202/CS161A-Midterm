@@ -2,7 +2,8 @@
 // Author: Andy Joy
 // Assignment: Midterm
 // Date: 05/09/2026
-// Description:
+// Description: This program will output the winners of a Rock Collecting Competition,
+//  and will calculate the average number of rocks collected by the top three players.
 // Sources: N/A
 
 // ------------- TESTING -------------
@@ -31,12 +32,12 @@
 
 using namespace std;
 
-//Constants declared
+// Constants declared
 const int NUM_PLAYERS = 3;
 
 int main() {
 
-  //Define variables
+  // Define variables
   string p1Name = "";
   string p2Name = "";
   string p3Name = "";
@@ -47,7 +48,7 @@ int main() {
 
   cout << "Welcome to the Rock Collector Championships!" << endl;
   
-  //User input
+  // User input
   cout << "\nEnter player 1 name: ";
   getline(cin, p1Name);
   cout << "How many rocks did " << p1Name << " collect? ";
@@ -120,7 +121,7 @@ int main() {
     cout << "\n" << p3Name << " is in first place!" << endl;
     cout << p1Name << " and " << p2Name << " are tied for second place." << endl;
   }
-  //1st place, 2nd place, 3rd place
+  // 1st place, 2nd place, 3rd place
   else if ((a > b) && (b > c)) {
     cout << "\n" << p1Name << " is in first place!" << endl;
     cout << p2Name << " is in second place." << endl;
@@ -152,7 +153,7 @@ int main() {
     cout << p1Name << " is in third place." << endl;
   }
 
-  //Calculations
+  // Calculations
   float average = static_cast<double>(p1Count + p2Count + p3Count) / NUM_PLAYERS;
 
   cout << "\nThe average number of rocks collected by the top three players is ";
