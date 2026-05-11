@@ -5,10 +5,6 @@
 // Description:
 // Sources: N/A
 
-// Indent Sub-statements by 3!!!!
-// Wrap Code?
-// Capitalize start of comments
-
 // ------------- TESTING -------------
 // PASS ALL GIVEN SAMPLE RUN TESTS [yes/no]: Yes
 // (Optional) Additional tests count: 4
@@ -35,7 +31,7 @@
 
 using namespace std;
 
-//constants declared
+//Constants declared
 const int NUM_PLAYERS = 3;
 
 int main() {
